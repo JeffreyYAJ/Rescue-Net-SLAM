@@ -1,0 +1,44 @@
+# MVP semantic classes for search-and-rescue object map.
+# Maps COCO class names to rescue-net class names.
+
+classes:
+  victim:
+    coco_labels: [person]
+    confidence_threshold: 0.45
+    color: [1.0, 0.2, 0.2]  # red
+    priority: 1
+
+  blocked_exit:
+    coco_labels: [door]
+    confidence_threshold: 0.40
+    color: [1.0, 0.6, 0.0]  # orange
+    priority: 2
+
+  collapsed:
+    coco_labels: [chair, couch, bed]
+    confidence_threshold: 0.35
+    color: [0.6, 0.4, 0.2]  # brown
+    priority: 3
+
+  gas_cylinder:
+    coco_labels: []  # no COCO proxy; reserved for custom model
+    confidence_threshold: 0.50
+    color: [0.9, 0.9, 0.0]  # yellow
+    priority: 2
+
+  fire_source:
+    coco_labels: [fire hydrant]
+    confidence_threshold: 0.40
+    color: [1.0, 0.3, 0.0]  # fire orange
+    priority: 2
+
+  safe_path:
+    coco_labels: []  # inferred later (Phase 2)
+    confidence_threshold: 0.50
+    color: [0.2, 0.8, 0.2]  # green
+    priority: 4
+
+# Reverse lookup built at runtime: coco_label -> rescue class
+fusion:
+  cluster_distance_m: 0.5
+  min_observations: 1

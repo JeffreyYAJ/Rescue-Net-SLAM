@@ -1,0 +1,24 @@
+# EuRoC MAV dataset settings for ORB-SLAM3 monocular mode.
+dataset: euroc
+sequence: MH_01_easy
+
+camera:
+  fx: 458.654
+  fy: 457.296
+  cx: 367.215
+  cy: 248.375
+  width: 752
+  height: 480
+  k1: -0.28340811
+  k2: 0.07395907
+  p1: 0.00019359
+  p2: 1.76187114e-05
+
+orb_slam3:
+  vocabulary: third_party/ORB_SLAM3/Vocabulary/ORBvoc.txt
+  settings: third_party/ORB_SLAM3/Examples/Monocular/EuRoC.yaml
+  executable: third_party/ORB_SLAM3/Examples/Monocular/mono_euroc
+
+# Monocular scale is relative; depth projection uses assumed object height (m).
+mono_depth:
+  assumed_object_height_m: 1.7  # person height proxy
