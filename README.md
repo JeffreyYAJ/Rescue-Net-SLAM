@@ -21,13 +21,17 @@ Voir [docs/architecture.md](docs/architecture.md) pour le détail.
 
 ## Installation
 
-### Python
+### Python (venv partagé OCS-VSLAM)
+
+Ce projet utilise le **venv du répertoire parent** (`OCS - VSLAM/.venv`), partagé avec les autres projets du dossier — pas de `.venv` local dans Rescue-Net.
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
+# Depuis Rescue-Net/
+source ../.venv/bin/activate
 pip install -r requirements.txt
 ```
+
+Les poids YOLO et les dépendances lourdes (Open3D, Ultralytics) ne sont installés qu'une fois dans ce venv commun.
 
 ### ORB-SLAM3 (optionnel pour Phase 1)
 

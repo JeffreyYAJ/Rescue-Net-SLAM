@@ -11,7 +11,7 @@ import numpy as np
 import yaml
 
 from mapping.object_map import BBox3D, SemanticObject, Vec3
-from semantic.detector import Detection
+from semantic.types import Detection
 
 
 @dataclass

@@ -2,22 +2,13 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
 
 import numpy as np
 import yaml
-from ultralytics import YOLO
 
-
-@dataclass
-class Detection:
-    class_name: str  # rescue-net class (victim, blocked_exit, ...)
-    coco_label: str
-    confidence: float
-    bbox_xyxy: tuple[float, float, float, float]  # x1, y1, x2, y2
-    timestamp: float
+from semantic.types import Detection
 
 
 class SemanticDetector:
@@ -38,6 +29,8 @@ class SemanticDetector:
             threshold = meta["confidence_threshold"]
             for coco_label in meta.get("coco_labels", []):
                 self._coco_to_rescue[coco_label.lower()] = (rescue_class, threshold)
+
+        from ultralytics import YOLO
 
         self._model = YOLO(model_name)
         self._device = device

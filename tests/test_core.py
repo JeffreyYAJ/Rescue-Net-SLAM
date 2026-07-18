@@ -14,7 +14,7 @@ sys.path.insert(0, str(REPO_ROOT))
 from mapping.fusion import fuse_observations
 from mapping.object_map import ObjectMap, SemanticObject, Vec3
 from semantic.projector import CameraIntrinsics, CameraPose, ObjectProjector
-from semantic.detector import Detection
+from semantic.types import Detection
 
 
 class TestObjectMap(unittest.TestCase):
